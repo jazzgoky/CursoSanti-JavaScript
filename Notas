@@ -1,0 +1,181 @@
+/////////////////////// 23 Enero 2019 ////////////////////////////////////////////////////////////////////
+
+Lenguaje que trabaja del lado del cliente
+
+***** Ventajas:
+Evita consultas al servidor, realizando las  validaciones del lado del cliente
+
+***** Desventajas
+
+Un usuario que conozca de javascript puede brincarse las validaciones del lado del cliente
+
+
+***** Usos
+
+Generar formularios dinamicos
+Validaciones por cada componente, dinamismo con el usuario sin que sean consultas a un servidor
+
+
+
+***** Tips:
+Para generar codigo rapido de html se escribe la palabra "html" y tabulador
+
+
+***** Nota:
+Los script se deben poner en la seccion del Body y hasta el final del mismo
+
+Existen script incrustados en el codigo html y otro que es incustado en un archivo .js y llamarse como una libreria
+
+El ordenador del cliente  solo entiende javascript
+
+# y . son de JQuery
+
+En JavaScript es lo mismo comilla simple que la doble.
+
+
+***** Caracteristicas:
+Es un lenguaje debil mente tipado, ya que al crear una varialble no debes asignarle el tipo de dato.
+
+
+
+TEMA 1 - OBJETO CONSOLA
+sirve para debug y mostrar que pasa en la aplicacion
+
+Para abrir la consola 
+CTRL  + SHIFT + I
+F12
+
+Escribir la palabra Window + Enter
+y luego desplegar la flecha hacia abajo
+
+Este es el objeto global de windows, y asi muestra sus funciones y propiedades.
+
+
+Tipos de Console:
+	console.log('Hola mundo de un archivo')
+	console.info('Este es un info')   	/* imprime con simblo de informacion, en algunos navegadores, puede 
+											que se vea igual que el console.log */
+	console.warn('este es un warning') // imprimoe con sombolo de warning 
+	console.error('este es un error') // imprime consimbolo de error
+
+	// Para imprimir en consola una tabla o arreglo
+	var x  	// Una variable puede ser declarada sin la palabra "var" pero se recomienda usarla
+			// Otra variante para asignar variables es con la palabra "let" pero esta es solo de asignacion local
+
+	console.table(x = ['Perro','Gato','Raton','Rana'])
+
+
+/////////////////////// 2 Enero 2019 ////////////////////////////////////////////////////////////////////
+
+// CONDITIONS
+console.assert(condition, message);
+
+// COUNTER
+	// Contador incrementable cada vez que se  manda llamar
+	// como para ver cuantas veces ser repite un bucle
+	console.count();
+
+	console.count('count 1');
+	console.count('count 2');
+	console.count('count 1');
+
+	Message: 
+			count 1: 1
+			count 2: 1
+			count 1: 2
+
+		/*NOTE: console.countReset  : reinicia el contador sin nombre a 0 
+                console.countReset('count 1')  : reinicia el contador 'count 1' a 0 
+         */
+
+// CONCATENATE
+	console.log("hola", "de", "todo el mundo");
+
+// VARIABLES
+console.log("Hola soy %s y tengo %i años", "santiago", 29)
+Message:  Hola soy santiago y tengo 29 aÃ±os
+
+ -- Un Numero se puede convertir en un string
+console.log("Hola soy %s y tengo %s años", "santiago", 29)
+Message:  Hola soy santiago y tengo 29 aÃ±os
+
+
+console.log("Hola soy %i y tengo %i años", "santiago", 29)
+Message:  NaN  (not a number)
+
+console.log("Hola soy %s y tengo %i años", "santiago")
+Message:   Hola soy santiago y tengo %i aÃ±os
+
+
+// STYLES
+	console.log("%cEste mensaje es con %cestilo", "color:white;background-color:black;padding:10px;",
+				"color:blue;margin:15px;");
+
+	console.error("%cEste mensaje es con %cestilo", "color:white;background-color:black;padding:10px;",
+				"color:blue;margin:15px;");
+
+		Nota: Los errores y warning los muestra de adentro hacia afuera.
+			Este mensaje es con estilo
+ 				main        @ 1-console.js:57         (aqui se genero el error)
+				(anonymous) @ 1-console.js:2    	  ( aqui se mando llamar la funcion "main" )
+
+// TRACER & FUNCTIONS
+  	function f1(){
+  		f2();
+  		function f2(){
+  			// Aqui se genera un error
+  			console.trace("esto es un trace de f2");
+  		}
+  	}
+
+  	function f3(){
+  		f4();
+  		function f4(){
+  			f1();
+  		}
+  	}
+  	f3();
+
+  	Existen funciones con nombre y funciones anonimas
+  	// con nombre
+  	function f3(){
+  	} 
+  	// sin nombre - anonimous
+  	function(){
+  		ejemplo: Mandar llamar una funcion anomima desde un evento de un objeto boton
+  			boton.click(function()){
+  				// todo el codigo
+  			});
+  	
+// GROUPS
+  	console.group("Grupo de estilos");
+  		console.log("%cEste mensaje es con %cestilo", "color:white;background-color:black;padding:10px;",
+				"color:blue;margin:15px;");
+
+		console.error("%cEste mensaje es con %cestilo", "color:white;background-color:black;padding:10px;",
+				"color:blue;margin:15px;");
+  	console.groupEnd();
+  	console.group("Grupo de otros");
+  		console.log("Esto es otro grupo");
+  	console.groupEnd();
+  	console.groupCollapsed("Grupo Collapsed");
+  		console.log("Esto es el ultimo grupo 1");
+  		console.groupCollapsed("Nivel 2");
+  			console.log("Esto es el ultimo grupo 2");
+  			console.groupCollapsed("Nivel 3");
+  				console.log("Esto es el ultimo 3");
+  			console.groupEnd();
+  		console.groupEnd();
+  	console.groupEnd();
+ 
+// TIMER
+
+  	console.time('time1');
+  	for (var i = 0; i < 1000; i++) {
+  	// no hace nada
+  	}
+  	console.timeEnd('time1');
+
+// CLEAR
+  	console.clear();
+*************************************************************************************************************
